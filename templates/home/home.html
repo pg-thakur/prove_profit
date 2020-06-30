@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %} home
+{% endblock  %}  
+{% block stylesheet %}<link rel="stylesheet" href={{'static/home/home1.css'}}>
+{% endblock %}
+
+
+{% block content%}
+    <div class="intro">
+<marquee class="marQ">------ Welcome to Prove Profit Balance Sheet Analysis ------</marquee>    </div>
+
+<section id="introduction">
+    <div class="intro-outer container">
+      <p><span class="prove-profit">Prove Profit</span> is online software that produces a complete financial analysis and interpretation of company’s financial position. No financial knowledge is required. Our unique online analysis software
+        performs this task.</p>
+      <p>All that has to be done is to enter the finacial report data (prepared according to the IFRS and US GAAP) and to receive the report of analysis. The result includes following elements and their interpretation.</p>
+      <div class="intro-inner">
+        <ul>
+          <!-- # APPLY @TAG IN EACH POINTS HERE; -->
+          <li><a href="#">Liquidity ratios</a></li>
+          <li><a href="#">Financial sustainability analysis</a></li>
+          <li><a href="#">Profitability ratios</a></li>
+          <li><a href="#">Activity ratios</a></li>
+          <li><a href="#">Financial failure forecast</a></li>
+          <li><a href="#">Financial rating analysis</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Step 1</h3>
+          <p class="card-text">
+            <ul>
+              <li>input data from balance sheet statement and income statement of the company</li>
+              <li>both IFRS and US GAAP standards accepted</li>
+              <li>simple manual data input that takes around 10 minutes</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Step 2</h3>
+          <p class="card-text">
+            <ul>
+              <li>about 15 different types of analysis are applied</li>
+              <li>tables graphs and textual interpretations are generated</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Step 3</h3>
+          <p class="card-text">
+            <ul>
+              <li>detailed report on the companys performance and position in .pdf format</li>
+              <li>accurate calculations and smart conclusion</li>
+              <li>fast and simple service</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+{% endblock %}
+    

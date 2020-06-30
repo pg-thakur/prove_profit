@@ -1,0 +1,205 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %} analysis
+{% endblock  %}
+{% block stylesheet %}<link rel="stylesheet" href={{'static/home/analysis.css'}}>
+
+{% endblock %}
+
+
+{% block content %}
+<form class="" action="" method="post">
+{%csrf_token%}
+
+<div class="intro">
+<marquee class="marQ">------ Welcome to Prove Profit Balance Sheet Analysis ------</marquee>    </div>
+    <div class="container bal-sheet-statement">
+      <h1 class="fontS anaH1">Analysis</h1>
+      <p class="anaStat">Enter your company’s financial data (from BalanceSheet) and Income statement (from Profit and Loss report).</p>
+      <div class="entityBox">
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4 enR">Entity</label>
+          <input class="col-lg-4 col-md-4 col-sm-4" type="text" name="entityName" value="" placeholder="Company's Name">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4 enR">Industry</label>
+          <input class="col-lg-4 col-md-4 col-sm-4" type="text" name="industryName" value="" placeholder="Type of Industry">
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4 enR">Period-1</label>
+          <input class="col-lg-4 col-md-4 col-sm-4" type="number" name="period1" value="" placeholder="Initial Period">
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4 enR">Period-2</label>
+          <input class="col-lg-4 col-md-4 col-sm-4" type="number" name="period2" value="" placeholder="Final Period">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4 enR">Currency</label>
+          <select class="col-lg-2 col-md-2 col-sm-2 selectC" name="currVal">
+            <option selected>Choose...</option>
+            <option value="c1">thousand</option>
+            <option value="c2">million</option>
+          </select>
+          <select class="col-lg-2 col-md-2 col-sm-2" name="currType">
+            <option selected>Choose...</option>
+            <option value="usd">USD (US$)</option>
+            <option value="inr">INR (₹)</option>
+            <option value="eur">EUR (€)</option>
+            <option value="jpy">JPY (¥)</option>
+            <option value="gbp">GBP (£)</option>
+            <option value="aud">AUD (A$)</option>
+            <option value="cad">CAD (C$)</option>
+            <option value="chf">CHF (CHF)</option>
+            <option value="cny">CNY (元)</option>
+            <option value="hkd">HKD (HK$)</option>
+            <option value="nzd">NZD (NZ$)</option>
+            <option value="sek">SEK (kr)</option>
+            <option value="krw">KRW (₩)</option>
+            <option value="sgd">SGD (S$)</option>
+            <option value="nok">NOK (kr)</option>
+            <option value="mxn">MXN ($)</option>
+          </select>
+          
+          
+        </div>
+      
+    </div>
+    <h4 class="fontS">Balance Sheet Statement</h4>
+    <div class="first-box">
+      
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Total Non Current asset</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="tnca1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="tnca2" value="">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Total Current asset</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="tca1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="tca2" value="">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Inventories</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="invt1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="invt2" value="">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Trade and other current</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="trade1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="trade2" value="">
+        </div>
+
+        
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Cash</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="cash1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="cash2" value="">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Issued capital</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="capital1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="capital2" value="">
+        </div>
+
+        
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Equity</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="equity1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="equity2" value="">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Non current liability</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="ncl1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="ncl2" value="">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Current liability</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="cl1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="cl2" value="">
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-4 col-md-4 col-sm-4">Intangible Assets</label>
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="ina1" value="">
+          <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="ina2" value="">
+        </div>
+    {% comment %} 
+    </div>
+    <h4 class="fontS">Profit & Loss Statement</h4>
+    <div class="second-box">
+      
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">Revenue</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">Cost of sales</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">Gross Profit</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">Other Income</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">Finance Cost</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">Income Tax Expense</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">Profit from discontinued operaion</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">other comprehensive income</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+
+      <div class="form-group row">
+        <label class="col-lg-4 col-md-4 col-sm-4">no. of employees</label>
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+        <input class="col-lg-2 col-md-2 col-sm-2 selectC" type="number" step="any" name="" value="">
+      </div>
+    </div>
+     {% endcomment %}
+    <div class="button-box">
+      <button type="submit" class="myButton btn-sm">SUBMIT</button>
+    </div>
+  </div>
+</form>
+
+
+
+
+{% endblock  %}
+

@@ -1,0 +1,155 @@
+.header{
+    margin: 0px;
+    height: 98px;
+    padding: 0px 0px;
+    background-color: rgb(230, 214, 214);
+}
+
+.left{
+    height: 40px;
+    width: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    border-style: none;
+}
+.mid{
+    /* border: 2px yellow solid; */
+    display: block;
+    width: fit-content;
+    margin:  -11px auto;     /* to make it center */
+
+}
+.right{
+    /* border: 2px white solid; */
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 25px;
+}
+.navbar{
+    display: inline;
+}
+.navbar li{
+    display: inline;     
+                            /* for making navbar in a line */
+    
+}
+
+.navbar li a{
+    color: black;
+    text-decoration: none;     /* to remove the underline in a tag*/
+    padding: 10px;
+    font-size: 25px;
+}
+
+/* to make changes on look when it is visited */
+.navbar li a:hover{
+    color: blue;
+    text-decoration: underline;     /* to add the underline in a tag*/
+    padding: 10px;
+    /* background-color: sandybrown; */
+    font-size: 25px;
+}
+
+.left img{
+    width: 153px;
+}
+
+.btn{
+    margin: 0px 9px;
+    color: white;
+    background-color: black;
+    padding: 6px 11px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+.btn:hover{
+    background-color: rgb(105, 103, 103);
+
+}
+
+/* .container{
+    color: black;
+    border: 2px solid black;
+    margin: 55px 228px;
+    padding: 8px 61px;
+    width: 740px;
+    border-radius: 14px;
+}
+.container h2{
+    text-align: center;
+    color: black;
+}
+.form{
+    color: black;
+    font-size: 25px;
+    font-family: 'Baloo Bhai 2', cursive;
+
+}
+
+.form input{
+    text-align: center;
+    display: block;
+    width: 300px;
+    padding: 8px 60px;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 10px;
+    font-family: 'Baloo Bhai 2', cursive;
+
+
+}
+.form button{
+    display: block;
+    width: 100px;
+    margin: auto;
+}
+
+.tbl td{
+    color: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.tbl th{
+    color: black;
+    font-size: 25px;
+    font-family: 'Baloo Bhai 2', cursive;
+
+}
+.tbl input{
+    text-align: center;
+    display: block;
+    width: 218px;
+    padding: 0px 0px;
+    font-size: 15px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 10px;
+    font-family: 'Baloo Bhai 2', cursive;
+} */
+.intro{
+    margin: 0px;
+    height: 50px;
+}
+.marQ {
+    margin-top: 1%;
+}
+
+#introduction {
+    /* background-color: rgb(230, 214, 214); */
+    margin: -6px 31px;
+}
+.intro1{
+    text-align: center;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+.pivot
+{
+    display: block;
+    margin: 16px 309px;
+    
+}

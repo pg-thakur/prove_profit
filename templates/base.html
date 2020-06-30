@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block script %}{% endblock  %}
+</head>
+
+<link href=" https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style>
+    /* css reset */
+    /* body {
+        margin: 0px;
+        padding: 0px;
+        background-color: blueviolet;
+        {% comment %} background: url("{%static '/img/pexels-photo-669610.jpeg' %}"); {% endcomment %}
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: 'Baloo Bhai 2', cursive;
+
+    } */
+    body{
+    margin: 0px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;}
+
+</style>
+{% block stylesheet %}{% endblock %}
+
+<body>
+{% block body %}
+    <header class="header">
+        <!-- left box for logo -->
+        <div class="left">
+            <a class="navbar-brand" href="#"> <img src="{% static '/img/IMG_20200528_124033.JPG' %}" alt="">
+            "PROVE PROFIT"
+            </a>
+        </div>
+
+
+        <!-- mid box for navbar -->
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="/">Home</a></li>
+                <li><a href="analysis">Start Analysis</a></li>
+                <li><a href="report">Report</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+            </ul>
+        </div>
+
+
+        <!-- right box for search -->
+        {% if user.is_authenticated%}
+        
+        <div class="right">
+            <li> Hello,{{user.username}}</li>
+            <button class="btn"><a href="logout">Logout</a></button>
+            </div>
+        {% else %}
+        <div class="right">
+            <button class="btn"><a href="signup">Sign Up</a></button>
+            <button class="btn"><a href="login">Login</a></button>
+         {% endif %}   
+
+        </div>
+
+
+    </header>
+    
+    {%block content %}
+    {% endblock %}
+    {% endblock body %}
+
+ <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+   
+</body>
+</html>

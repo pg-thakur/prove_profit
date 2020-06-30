@@ -1,0 +1,14 @@
+
+.container {
+    color: black;
+    border: 2px solid black;
+    margin: 55px 228px;
+    padding: 8px 61px;
+    width: 740px;
+    border-radius: 14px;
+    background-color: lightblue;
+}
+.container h2{
+    text-align: center;
+    color: black;
+}

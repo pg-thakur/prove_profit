@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title%}
+login
+{% endblock%}
+
+{% block stylesheet %}<link rel="stylesheet" href={{'static/accounts/login.css'}}>
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="container">
+<h2>login</h2>
+<form class="loginform" method="post" novalidate>
+{% csrf_token %}
+
+    {{ form.as_p }}
+
+<button type="submit">login</button>
+{% for message in messages %}
+
+                    <div class="alert alert-success">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+
+                        {{ message }}
+
+                    </div>
+            {% endfor %}
+<div class="footer">
+            New to Prove Profit? <a href="{% url 'signup' %}" style = "text-decoration: none;">Sign up</a>
+</div>
+</form>
+</div>
+{%endblock%}

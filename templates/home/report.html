@@ -1,0 +1,766 @@
+{% extends 'base.html' %}
+
+{% block title %} home
+{% endblock  %}  
+
+
+{% block stylesheet %}<link rel="stylesheet" href={{'static/home/report.css'}}>
+{% endblock %}
+{% block script %}
+{% endblock  %}
+
+{% block content%}
+
+<div class="intro">
+<marquee class="marQ">------ Welcome to Prove Profit Balance Sheet Analysis ------</marquee>    </div>
+
+
+
+<section id="introduction">
+                
+    <div class=intro1>
+        <h3>{{entity}}'s Financial Analysis Report</h3>
+        <h4>for the period from {{period1}} to {{period2}}</h4>
+    </div>
+    <div class="index">
+        <ul>
+            <li>1. {{entity}}'s Financial Position Analysis
+            <ul>
+                <li>1.1. Structure of the Assets
+                <li>1.2. Structure of the Liabilities
+                <li>1.3. Net Assets (Net Worth)
+                <li>1.4. Financial Sustainability Analysis
+                    <ul>
+                        <li>1.3.1. Key ratios of the company's financial sustainability
+                      
+                    </ul>
+
+                <li>1.5. Liquidity Analysis
+            </ul>
+        </ul>
+        
+    </div>
+
+    <div class="intro1">
+    <h5>{{entity}}'s financial position analysis</h5>
+    </div>
+    <p>The following report analyses <b>{{entity}}'s</b> financial condition based on the financial statements data prepared according to International Financial Reporting Standards (IFRS) for the period from <b>{{period1}}</b> to <b>{{period2}}</b></p>
+    <div class="intro1">
+    <h5>STRUCTURE OF BALANCE SHEET</h5>
+    </div>
+    <div >
+        {{ df | safe}}
+    </div>
+    <br>
+    <p>The table above represents the value of Total Non Current Asset, Total Current Asset, Inventories, Trade and other Current, Cash ,Issued capital,Equity,Non Current Liabilities, Current Liabilities of the {{entity}} from {{period1}} to {{period2}}</p>
+    <br>
+    <hr>
+
+
+
+    <div class="intro1">
+    <h5>1.1 Stucture of the Assets</h5>
+    </div>
+    <br>
+    <br>
+    <div >
+        {{ asset | safe}}
+    </div>
+    <br>
+    <ul>
+        <li><b>Non current assets</b> are also known as long-term assets.Noncurrent asset costs are allocated over the number of years the asset is used. They are on the balance sheet under investment: property, plant, and equipment; intangible assets; or other assets.</li>
+        <ul>
+            <li>Total Non current assets for the year {{period1}} is <b>{{non_current_asset_p1}}</b></li>
+            <li>Total Non current assets for the year {{period2}} is <b>{{non_current_asset_p2}}</b></li>
+            <li>The % difference between non current assets over the analysis period is <b>{{p_non_current_asset}}</b></li></ul>
+
+        <li><b>Current assets</b> are all the assets of a company that are expected to be sold or used as a result of standard business operations over the next year. They include cash, cash equivalents, accounts receivable, stock inventory, marketable securities, pre-paid liabilities, and other liquid assets.</li>
+            <ul>
+            <li>Current Assets can be used as clear regular payments and bills. It gives an insight into the company’s cash and liquid position. Investors and Creditors analyse the company’s current assets closely to understand the risk or benefits involved in the operation.</li>
+            <li>Total current assets for the year {{period1}} is <b>{{current_asset_p1}}</b></li>
+            <li>Total current assets for the year {{period2}} is <b>{{current_asset_p2}}</b></li>
+            <li>The % difference between current assets over the analysis period is <b>{{p_current_asset}}</b></li></ul>
+
+        <li><b>Total assets</b> are the sum of all current and noncurrent assets and must equal the sum of total liabilities and stockholders' equity combined.</li>
+        <ul><li>Total assets for the year {{period1}} is <b>{{total_asset_p1}}</b></li>
+            <li>Total assets for the year {{period2}} is <b>{{total_asset_p2}}</b></li>
+            <li>The % difference between total assets over the analysis period is <b>{{p_total_asset}}</b></li></ul>
+
+        </ul>
+    </ul>
+    <br>
+    <p><b>
+    In the chart below, the correlation of the company's Current Assets and Non current Assets is demonstrated:
+
+</b></p>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <br>
+    <br>
+    <p><b>    In the Bar graph below, the value of the company's Current Assets and Non current Assets is compared over period of analysis:
+</b></p>
+    <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+
+
+    <br><hr>
+
+
+
+    <div class="intro1">
+        <h5>1.2 Stucture of the Liabilities</h5>
+        </div>
+        <br>
+        <br>
+        <div>
+        {{ liability | safe}}</div>
+        <br>
+        <ul>
+            <li><b>Equity</b> represents the amount of money that would be returned to a company’s shareholders if all of the assets were liquidated and all of the company's debt was paid off. We can think of equity as a degree of ownership in any asset after subtracting all debts associated with that asset. Equity represents the shareholders’ stake in the company. The calculation of equity is a company's total assets minus its total liabilities. 
+            </li>
+                <ul><li>Total equity for the year {{period1}} is <b>{{equity_p1}}</b></li>
+            <li>Total equity for the year {{period2}} is <b>{{equity_p2}}</b></li>
+            <li>The % difference between equity over the analysis period is <b>{{p_equity}}</b></li>
+                </ul> 
+
+            <li><b>Non Current liabilities</b> have obligations that become due beyond twelve months in the future, as opposed to current liabilities which are short-term debts with maturity dates within the following twelve month period.</li> 
+                <ul>
+                <li>Noncurrent liabilities are compared to cash flow, to see if a company will be able to meet its financial obligations in the long-term. While lenders are primarily concerned with short-term liquidity and the amount of current liabilities, long-term investors use noncurrent liabilities to gauge whether a company is using excessive leverage. The more stable a company’s cash flows, the more debt it can support without increasing its default risk.</li>
+                <li>The % difference between non current liabilities over the analysis period is <b>{{p_noncurrent_liab}}</b></li>
+                <li>The % difference between current liabilities over the analysis period is <b>{{p_current_liab}}</b></li>
+                </ul>          
+            </ul>
+            <br>
+            <p><b>    In the chart below, the correlation of the company's Current liability, Non current liability and Equity is demonstrated:
+</b></p>
+
+                <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+                <br><br>
+                <p><b>    In the Bar graph below, the value of the company's Current liability, Non current liability and Equity is compared over period of analysis :
+</b></p>
+                <div id="chartContainer4" style="height: 300px; width: 100%;"></div>
+
+            <br><hr>
+
+
+
+        <div class="intro1">
+        <h5>1.3. Net Assets (Net Worth)</h5>
+        </div>
+        <div>
+        {{ net_asset | safe}}</div>
+        <br>
+        <ul>
+            <li>
+            <b>Net tangible assets</b> are calculated as the total assets of a company, minus any intangible assets such as goodwill, patents, and trademarks, less all liabilities and the par value of preferred stock.</li>        
+            <ul>
+            <li>This measurement of a company's tangible assets is important because it allows a firm's management team to analyze its asset position without including obsolete or difficult to value intangible assets. A company's return on assets (ROA), for example, is often more accurate when net tangible assets are used in the calculation.</li></ul>
+        
+            <li><b>The net asset value</b> (NAV) represents the net value of an entity and is calculated as the total value of the entity’s assets minus the total value of its liabilities.</li>
+                <ul>
+                <li>Net asset value is commonly used to identify potential investment opportunities within mutual funds, ETFs or indexes. One could also use net asset value to view the holdings in their own portfolio. To invest in any of the aforementioned assets, an investment account would be needed.</li></ul>
+            <li><b>Issued (share) capital</b> is the amount of nominal value of share held by the shareholders. It is the face value of the shares that have been issued to the shareholders. Issued share capital and share premium represent the amount invested by the shareholders in the company.</li>
+            <ul><li>It should be kept in mind that issued share capital is not affected by the market price of shares. The value of issued capital presented in the financial statements is simply the number of issued shares multiplied by the face value of each share. If company has issued 100,000 equity shares of face value $ 1 per share and the market value of each share is $ 2, even then the issued share capital of such a company will be $ 100,000 (Not $ 200,000).</li>
+                        </ul>
+
+            <li>Net Tangible asset is <b>{{net_tangible_p2}}</b> in {{period2}} as against <b>{{net_tangible_p1}}</b> in {{period1}}</li>
+            <li>Net asset is <b>{{net_asset_p2}}</b> in {{period2}} as against <b>{{net_asset_p1}}</b> in {{period1}} </li>
+        'issued_capital_p1':net_asset.iloc[2,0],
+            <li>Issued capital is <b>{{issued_capital_p2}}</b> in {{period2}} as against <b>{{issued_capital_p1}}</b> in {{period1}} </li>
+        </ul>
+        <br>
+                        <p><b>    In the Bar graph below, the value of the company's Net asset and Issued capital is compared over period of analysis :
+                        </b></p>
+                <div id="chartContainer7" style="height: 300px; width: 100%;"></div>
+                <br>
+
+        <hr>
+    
+
+        <div class="intro1">
+    <h5>1.4. Financial Sustainability Analysis</h5>
+        </div>
+        <div class="intro1">
+    <h6>1.4.1. Key ratios of the company's financial sustainability</h6>
+        </div>
+        <br>
+        <br>        
+        <div>
+        {{ stability | safe}}
+        </div>
+        <br>
+                
+
+        
+        <ul>
+            <li><b>A debt-to-equity ratio</b> is calculated by taking the total liabilities and dividing it by shareholders' equity.
+            <ul>
+                <li>The debt-to-equity (D/E) ratio reflects a company's debt status.</li>
+                <li>A high D/E ratio is considered risky for lenders and investors because it suggests that the company is financing a significant amount of its potential growth through borrowing.</li>
+                <li>Acceptable value: no more than 1.5 (optimum 0.43-1).
+            </ul>
+            <li><b>A debt ratio</b> is calculated by dividing total liabilities (i.e. long-term and short-term liabilities) by total assets. 
+            <ul>
+                <li>The debt ratio for a given company reveals whether or not it has loans and, if so, how its credit financing compares to its assets.</li>
+                <li>A debt ratio greater than 1.0 (100%) tells you that a company has more debt than assets.
+                </li>
+                <li>Normal value: 0.6 or less (optimum 0.3-0.5).
+            </ul>
+            <li><b>Long term Debt to Equity ratio</b> is calculated by dividing long-term (non-current) liabilities by equity.
+            </li>
+            <ul>
+            <li>When the ratio is comparatively high, it implies that a business is at greater risk of bankruptcy, since it may not be able to pay for the interest expense on the debt if its cash flows decline
+            </li>
+            </ul>
+            <li><b>Noncurrent Asset to Net worth ratio</b> is calculated by dividing long-term (non-current) assets by net worth (equity).
+            </li>
+            <ul>
+            <li>It measures the extent of a company's investment in low-liquidity non-current assets. This ratio is important for comparison analysis because it's less dependent on industry (structure of company's assets) than debt ratio and debt-to-equity ratio.</li>
+            <li>Acceptable value: no more than 1.25.
+            </li>
+            <li>A ratio of between 1.25 to 1.50 and above might be considered of concern to investors as it could suggest that the business is relying too heavily on low liquid assets that they might have difficulty converting if needed.</li></ul>
+            <li><b>Capitalization ratio</b> is calculated by dividing non-current liabilities by the sum of equity and non-current liabilities.
+            </li>
+            <ul>
+                <li>Capitalization ratio is also known as the financial leverage ratio. It tells the investors about the extent to which the company is using its equity to support its operations and growth.</li>
+                <li>
+                The companies with high capitalization ratio are considered to be risky because they are at a risk of insolvency if they fail to repay their debt on time. Companies with a high capitalization ratio may also find it difficult to get more loans in the future.
+                 </li>
+            </ul>
+            <li><b>Current liability ratio</b> is calculated by dividing current liabilities by total (i.e. current and non-current) liabilities.
+            </li>
+        </ul>
+        <br>
+        <p><b>The change in the main ratios of financial stability of company is demonstrated for the whole period analysed in the chart below.
+
+</b></p>
+        <div id="chartContainer5" style="height: 300px; width: 100%;"></div>
+        <br>
+
+        <hr>
+
+
+
+
+
+        <div class="intro1">
+    <h5>1.5. Liquidity Analysis</h5>
+    <br>
+        </div>
+        <p>Liquidity related ratios are one of the most widespread indicators of a company's solvency. The current ratio shows the capacity of a company to meet current liabilities with all available current assets. Quick ratio describes solvency in the near future. Cash ratio shows if there is enough means for uninterrupted execution of current transactions. All three ratios for Goldstar are calculated in the following table.
+
+        </p>
+
+        {{ liquidity | safe}}
+        <br>
+        <ul>
+        
+        <li>The <b>current ratio</b> is calculated by dividing current assets by current liabilities:
+
+
+        </li>
+            <ul>
+            <li>The current ratio indicates a company's ability to meet short-term debt obligations. The current ratio measures whether or not a firm has enough resources to pay its debts over the next 12 months.
+            </li>
+            <li>
+            The higher the ratio, the more liquid the company is. Commonly acceptable current ratio is 2; it's a comfortable financial position for most enterprises.</li>
+            <li>Low values for the current ratio (values less than 1) indicate that a firm may have difficulty meeting current obligations.</li>
+            <li>If the current ratio is too high (much more than 2), then the company may not be using its current assets or its short-term financing facilities efficiently. </li>
+            </ul>
+        <li>The <b>quick ratio</b> is calculated by dividing liquid assets by current liabilities:
+
+        </li>
+        <ul>
+            <li>The quick ratio is measure of a company's ability to meet its short-term obligations using its most liquid assets (near cash or quick assets). Quick ratio is viewed as a sign of a company's financial strength or weakness; it gives information about a company’s short term liquidity.
+            </li>
+            <li>The higher the quick ratio, the better the position of the company. The commonly acceptable current ratio is 1, but may vary from industry to industry. 
+            <li> A company with a quick ratio of less than 1 can not currently pay back its current liabilities; it's the bad sign for investors and partners.
+        </ul>
+        <li><b>Cash ratio</b> is calculated by dividing absolute liquid assets (cash and cash equivalents) by current liabilities.
+        </li>
+        <ul>
+        <li>The cash ratio is a liquidity measure that shows a company's ability to cover its short-term obligations using only cash and cash equivalents.
+            </li>
+        <li>Upon calculating the ratio, if the result is equal to 1, the company has exactly the same amount of current liabilities as it does cash and cash equivalents pay off those debts.
+
+</li>
+        <li>If a company's cash ratio is less than 1, there are more current liabilities than cash and cash equivalents. It means insufficient cash on hand exists to pay off short-term debt. This may not be bad news if the company has conditions that skew its balance sheets, such as lengthier-than-normal credit terms with its suppliers, efficiently-managed inventory, and very little credit extended to its customers.
+
+</li>
+    <li>If a company's cash ratio is greater than 1, the company has more cash and cash equivalents than current liabilities. In this situation, the company has the ability to cover all short-term debt and still have cash remaining. While that sounds responsible, a higher cash ratio does not necessarily reflect a company's strong performance, especially if it is significantly greater than the industry norm. High cash ratios may indicate that a company is inefficient in the utilization of cash or not maximizing the potential benefit of low-cost loans: Instead of investing in profitable projects, it's letting money stagnate in a bank account. It may also suggest that a company is worried about future profitability and is accumulating a protective capital cushion.
+
+</li>
+<li>Acceptable value: no less than 0.2.
+</li></ul>
+
+
+        </ul>
+        <br>
+        <p><b>The change in the Liquidity of company is demonstrated for the whole period analysed in the chart below.
+
+</b></p>
+                <div id="chartContainer6" style="height: 300px; width: 100%;"></div>
+                <br>
+
+        <hr>
+        
+
+
+</section>
+
+<script>
+
+window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: "Assets structure on Period2"
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "pie",
+            showInLegend: true,
+            toolTipContent: "{name}: <strong>{y}%</strong>",
+            indexLabel: "{name} - {y}%",
+            dataPoints: [
+                {y: {{asset_pie_val1}}, name: "Non-current Assets", exploded: true},
+                {y: {{asset_pie_val2}}, name: "Current Assets"}
+                
+            ]
+        }]
+    });
+    chart.render();
+    
+    
+    
+    
+    
+    
+    
+
+        var bar = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            title:{
+                text: "Non current and current asset between period1 to period2"
+            },	
+            axisY: {
+                title: "in thousand USA",
+                titleFontColor: "#4F81BC",
+                lineColor: "#4F81BC",
+                labelFontColor: "#4F81BC",
+                tickColor: "#4F81BC"
+            },
+            	
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor:"pointer",
+                itemclick: toggleDataSeries
+            },
+            data: [{
+                type: "column",
+                name: "Noncurrent Asset",
+                legendText: "Noncurrent Asset",
+                showInLegend: true, 
+                dataPoints:[
+                    { label: "Period1", y: {{bar_1}} },
+                    { label: "Period2", y: {{bar_2}} }
+                ]
+            },
+            {
+                type: "column",	
+                name: "Current Asset",
+                legendText: "Current Asset",
+                showInLegend: true, 
+                dataPoints:[
+                    { label: "Period1", y: {{bar_3}} },
+                    { label: "Period2", y: {{bar_4}}}
+                ]
+            }]
+        });
+        bar.render();
+        
+        function toggleDataSeries(e) {
+            if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            }
+            else {
+                e.dataSeries.visible = true;
+            }
+            bar.render();
+        }
+    
+        var bar3 = new CanvasJS.Chart("chartContainer7", {
+            animationEnabled: true,
+            title:{
+                text: "Net asset and Issued capital from period1 to period2"
+            },	
+            axisY: {
+                title: "in thousand USA",
+                titleFontColor: "#4F81BC",
+                lineColor: "#4F81BC",
+                labelFontColor: "#4F81BC",
+                tickColor: "#4F81BC"
+            },
+            	
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor:"pointer",
+                itemclick: toggleDataSeries
+            },
+            data: [{
+                type: "column",
+                name: "Net Asset",
+                legendText: "Net Asset",
+                showInLegend: true, 
+                dataPoints:[
+                    { label: "Period1", y: {{bar3_1}} },
+                    { label: "Period2", y: {{bar3_2}} }
+                ]
+            },
+            {
+                type: "column",	
+                name: "Issued capital",
+                legendText: "Issued capital",
+                showInLegend: true, 
+                dataPoints:[
+                    { label: "Period1", y: {{bar3_3}} },
+                    { label: "Period2", y: {{bar3_4}} }
+                ]
+            }]
+        });
+        bar3.render();
+        
+        function toggleDataSeries(e) {
+            if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            }
+            else {
+                e.dataSeries.visible = true;
+            }
+            bar3.render();
+        }
+    
+
+
+    
+
+        var chart2 = new CanvasJS.Chart("chartContainer3", {
+            exportEnabled: true,
+            animationEnabled: true,
+            title:{
+                text: "Capital structure on Period2"
+            },
+            legend:{
+                cursor: "pointer",
+                itemclick: explodePie
+            },
+            data: [{
+                type: "pie",
+                showInLegend: true,
+                toolTipContent: "{name}: <strong>{y}%</strong>",
+                indexLabel: "{name} - {y}%",
+                dataPoints: [
+                    {y: {{chart2_2}}, name: "Non-current liability", exploded: true},
+                    {y: {{chart2_1}}, name: "Current liability"},
+                    {y: {{chart2_3}}, name: "Equity"}
+                    
+                ]
+            }]
+        });
+        chart2.render();
+        
+        
+        
+    
+    
+            var bar2 = new CanvasJS.Chart("chartContainer4", {
+                animationEnabled: true,
+                title:{
+                    text: "Equity, Non current liability and Current liability between period1 and period2"
+                },	
+                axisY: {
+                    title:"in thousand USA",
+                    titleFontColor: "#4F81BC",
+                    lineColor: "#4F81BC",
+                    labelFontColor: "#4F81BC",
+                    tickColor: "#4F81BC"
+                },
+                
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor:"pointer",
+                    itemclick: toggleDataSeries
+                },
+                 
+                data: [{
+                    type: "column",
+                    name: "Noncurrent liability",
+                    legendText: "Noncurrent liability",
+                    showInLegend: true, 
+                    dataPoints:[
+                        { label: "Period1", y: {{bar2_3}} },
+                        { label: "Period2", y: {{bar2_4}} }
+                    ]
+                },
+                {
+                    type: "column",	
+                    name: "Current liability",
+                    legendText: "Current liability",
+                    showInLegend: true, 
+                    dataPoints:[
+                        { label: "Period1", y: {{bar2_5}} },
+                        { label: "Period2", y: {{bar2_6}} }
+                    ]
+                },
+                {
+                    type: "column",	
+                    name: "Equity",
+                    legendText: "Equity",
+                    showInLegend: true, 
+                    dataPoints:[
+                        { label: "Period1", y: {{bar2_1}} },
+                        { label: "Period2", y: {{bar2_2}} }
+                    ]
+                }]
+            });
+            bar2.render();
+            
+            function toggleDataSeries(e) {
+                if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                }
+                else {
+                    e.dataSeries.visible = true;
+                }
+                bar2.render();
+            }
+
+
+            var line1 = new CanvasJS.Chart("chartContainer5", {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                    text: "Financial stability ratio"
+                },
+                axisX:{
+                    title:"Dynamics of the ratio of company's financial stability",
+                    crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true
+                    }
+                },
+                axisY: {
+                    title: "Number of Visits",
+                    crosshair: {
+                        enabled: true
+                    }
+                },
+                toolTip:{
+                    shared:true
+                },  
+                legend:{
+                    cursor:"pointer",
+                    verticalAlign: "bottom",
+                    horizontalAlign: "left",
+                    dockInsidePlotArea: true,
+                    itemclick: toogleDataSeries
+                },
+                data: [{
+                    type: "line",
+                    showInLegend: true,
+                    name: "Debt to equity ratio",
+                    markerType: "square",
+                    
+                    color: "orange",
+                    dataPoints: [
+                        { label: 'period1', y: {{line1_1}} },
+                        { label: 'period2', y: {{line1_2}} },
+                        
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Debt ratio",
+                    lineDashType: "dash",
+                    dataPoints: [
+                        { label: 'period1', y: {{line1_3}} },
+                        { label: 'period2', y: {{line1_4}} },
+                        
+                    ]
+                },
+                 {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Non current asset to net worth",
+                    lineDashType: "dashDot",
+                   color: "blue",
+                    dataPoints: [
+                        { label: 'period1', y: {{line1_5}} },
+                        { label: 'period2', y: {{line1_6}} },
+                        
+                    ]
+                },
+                      {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Capitalization ratio",
+                    lineDashType: "longDash",
+                   color: "black",
+                    dataPoints: [
+                        { label: 'period1', y: {{line1_7}} },
+                        { label: 'period2', y: {{line1_8}} },
+                        
+                    ]
+                },
+                      {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Current liability ratio",
+                    lineDashType:"shortDash",
+                   color: "brown",
+                    dataPoints: [
+                        { label: 'period1', y: {{line1_9}} },
+                        { label: 'period2', y: {{line1_10}} },
+                        
+                    ]
+                }]
+            });
+            line1.render();
+            
+            function toogleDataSeries(e){
+                if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else{
+                    e.dataSeries.visible = true;
+                }
+                line1.render();
+            }
+
+            var line2 = new CanvasJS.Chart("chartContainer6", {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                    text: "Liquidity ratio"
+                },
+                axisX:{
+                    title:"Dynamics of company's liquidity ratio",
+                    crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true
+                    }
+                },
+                axisY: {
+                    title: "Ratio",
+                    crosshair: {
+                        enabled: true
+                    }
+                },
+                toolTip:{
+                    shared:true
+                },  
+                legend:{
+                    cursor:"pointer",
+                    verticalAlign: "bottom",
+                    horizontalAlign: "left",
+                    dockInsidePlotArea: true,
+                    itemclick: toogleDataSeries
+                },
+                data:[
+                 {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Current Ratio",
+                    lineDashType: "dash",
+                   color: "blue",
+                    dataPoints: [
+                        { label: 'period1', y: {{line2_1}} },
+                        { label: 'period2', y: {{line2_2}} },
+                        
+                    ]
+                },
+                      {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Cash ratio",
+                    lineDashType: "dash",
+                   color: "black",
+                    dataPoints: [
+                        { label: 'period1', y: {{line2_5}} },
+                        { label: 'period2', y: {{line2_6}} },
+                        
+                    ]
+                },
+                      {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Quick ratio",
+                    lineDashType: "dash",
+                   color: "brown",
+                    dataPoints: [
+                        { label: 'period1', y: {{line2_3}} },
+                        { label: 'period2', y: {{line2_4}} },
+                        
+                    ]
+                }]
+            });
+            line2.render();
+            
+            function toogleDataSeries(e){
+                if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else{
+                    e.dataSeries.visible = true;
+                }
+                line2.render();
+            }
+        
+}
+            
+            
+    
+    
+            function explodePie (e) {
+                if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+                    e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+                } else {
+                    e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+                }
+                e.chart2.render();
+            }
+            
+    
+        
+        
+
+
+        function explodePie (e) {
+            if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+                e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+            } else {
+                e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+            }
+            e.chart.render();
+        }
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

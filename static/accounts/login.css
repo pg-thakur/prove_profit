@@ -1,0 +1,24 @@
+.container {
+    color: black;
+    border: 2px solid black;
+    background-color: lightblue;
+    margin: 66px 302px;
+    padding: 61px 61px;
+    width: 500px;
+    border-radius: 14px;
+}
+.container h2{
+    text-align: center;
+    color: black;
+}
+
+.footer a{
+    color: rgb(16, 12, 240);
+}
+.footer a:hover{
+    color: red;
+    text-decoration: underline;    /* to add the underline in a tag*/
+    cursor: pointer;
+    
+    
+}
